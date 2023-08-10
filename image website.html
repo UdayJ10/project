@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<meta charset="utf-8">
+<title>GALLARY</title>
+<link rel="stylesheet" href="back.css">
+    </head>
+    <body>
+        <section>
+            <ul>
+                <li class="list active" data-filter="all">All</li>
+                <li class="list" data-filter="game">Game</li>
+                <li class="list" data-filter="food">Food</li>
+                <li class="list" data-filter="travel">Travel</li>
+                <li class="list" data-filter="animal">Animal</li>
+            </ul>
+            <div class="product">
+                <div class="itemBox" data-item="game"><img src="1.avif"> <h5>CALL OF DUTY MOBILE</h5></div>
+                <div class="itemBox" data-item="game"><img src="2.jpg"></div>
+                <div class="itemBox" data-item="game"><img src="3.jpg"></div>
+                <div class="itemBox" data-item="game"><img src="4.jpg"></div>
+                <div class="itemBox" data-item="game"><img src="5.jpg"></div>
+                <div class="itemBox" data-item="food"><img src="Homemade-French-Fries_8.jpg"></div>
+                <div class="itemBox" data-item="food"><img src="pizaa.jpg"></div>
+                <div class="itemBox" data-item="food"><img src="ramen.jpg"></div>
+                <div class="itemBox" data-item="food"><img src="download.jpeg"></div>
+                <div class="itemBox" data-item="food"><img src="takoyaki.jpeg"></div>
+                <div class="itemBox" data-item="food"><img src="vada-pav.webp"></div>
+                <div class="itemBox" data-item="travel"><img src="forest.jpeg"></div>
+                <div class="itemBox" data-item="travel"><img src="fuji.jpeg"></div>
+                <div class="itemBox" data-item="travel"><img src="lay.jpeg"></div>
+                <div class="itemBox" data-item="travel"><img src="gateway-of-india.jpg"></div>
+                <div class="itemBox" data-item="travel"><img src="shrine.jpeg"></div>
+                <div class="itemBox" data-item="travel"><img src="leonardo-2620257-101156480-681214.jpg"></div>
+                <div class="itemBox" data-item="travel"><img src="Taj-Mahal-Agra-India.webp"></div>
+                <div class="itemBox" data-item="animal"><img src="Black-Panther.jpg"></div>
+                <div class="itemBox" data-item="animal"><img src="fox.jpeg"></div>
+                <div class="itemBox" data-item="animal"><img src="Giant-panda.jpg"></div>
+                <div class="itemBox" data-item="animal"><img src="images.jpeg"></div>
+                <div class="itemBox" data-item="animal"><img src="lion.webp"></div>
+                <div class="itemBox" data-item="animal"><img src="peacock.jpg"></div>
+            </div>
+        </section>
+
+        <script>
+            let list = document.querySelectorAll('.list');
+            let itemBox = document.querySelectorAll('.itemBox');
+
+for(let i = 0; i<list.length; i++){
+    list[i].addEventListener('click',function(){
+        for(let j = 0; j<list.length; j++){
+            list[j].classList.remove('active');
+        }
+        this.classList.add('active');
+
+        let dataFilter = this.getAttribute('data-filter');
+
+        for(let k = 0; k<itemBox.length; k++ ){
+            itemBox[k].classList.remove('active');
+            itemBox[k].classList.add('hide');
+
+
+            if(itemBox[k].getAttribute('data-item') == dataFilter || dataFilter == "all")
+            itemBox[k].classList.remove('hide');
+            itemBox[k].classList.add('active');
+
+        }
+    })
+}
+        </script>
+        
+    </body>
+</html>
